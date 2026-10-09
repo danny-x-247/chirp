@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Chirp - Connect with friends, colleagues and communities."
+    >
+
+    <title>Chirp | Connect & Chat</title>
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         LOADING SCREEN
+    ====================================================== -->
+
+    <div id="loadingScreen" class="loading-screen">
+        <img
+            src="assets/chirp-logo.png"
+            alt="Chirp Logo"
+            class="loading-logo"
+        >
+
+        <p>Loading Chirp...</p>
+    </div>
+
+
+    <!-- =====================================================
+         AUTHENTICATION PAGE
+    ====================================================== -->
+
+    <section id="authPage" class="auth-page hidden">
+
+        <div class="auth-left">
+
+            <div class="auth-brand">
+
+                <img
+                    src="assets/chirp-logo.png"
+                    alt="Chirp Logo"
+                    class="auth-logo"
+                >
+
+                <h1>Chirp</h1>
+
+            </div>
+
+            <div class="auth-message">
+
+                <span class="auth-label">
+                    CONNECT • SHARE • CHAT
+                </span>
+
+                <h2>
+                    Your people.<br>
+                    <span>Your conversations.</span>
+                </h2>
+
+                <p>
+                    Find friends and colleagues, share updates,
+                    and have real conversations from anywhere.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="auth-right">
+
+            <div class="auth-card">
+
+                <!-- LOGIN -->
+
+                <div id="loginFormContainer">
+
+                    <h2>Welcome back</h2>
+
+                    <p class="auth-subtitle">
+                        Sign in to continue to Chirp.
+                    </p>
+
+
+                    <form id="loginForm">
+
+                        <div class="form-group">
+
+                            <label for="loginEmail">
+                                Email
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-envelope"></i>
+
+                                <input
+                                    type="email"
+                                    id="loginEmail"
+                                    placeholder="you@example.com"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="loginPassword">
+                                Password
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                <input
+                                    type="password"
+                                    id="loginPassword"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="loginPassword"
+                                    aria-label="Show password"
+                                >
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                            id="loginBtn"
+                        >
+                            Sign in
+                        </button>
+
+                    </form>
+
+
+                    <p class="switch-auth">
+                        New to Chirp?
+
+                        <button
+                            type="button"
+                            id="showRegisterBtn"
+                        >
+                            Create an account
+                        </button>
+                    </p>
+
+                </div>
+
+
+                <!-- REGISTER -->
+
+                <div
+                    id="registerFormContainer"
+                    class="hidden"
+                >
+
+                    <h2>Join Chirp</h2>
+
+                    <p class="auth-subtitle">
+                        Create your profile and start connecting.
+                    </p>
+
+
+                    <form id="registerForm">
+
+                        <div class="form-group">
+
+                            <label for="registerName">
+                                Full name
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-user"></i>
+
+                                <input
+                                    type="text"
+                                    id="registerName"
+                                    placeholder="Your full name"
+                                    maxlength="60"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="registerUsername">
+                                Username
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <span class="at-symbol">@</span>
+
+                                <input
+                                    type="text"
+                                    id="registerUsername"
+                                    placeholder="username"
+                                    minlength="3"
+                                    maxlength="20"
+                                    autocomplete="username"
+                                    required
+                                >
+
+                            </div>
+
+                            <small>
+                                Letters, numbers and underscores only.
+                            </small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="registerEmail">
+                                Email
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-regular fa-envelope"></i>
+
+                                <input
+                                    type="email"
+                                    id="registerEmail"
+                                    placeholder="you@example.com"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="registerPassword">
+                                Password
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                <input
+                                    type="password"
+                                    id="registerPassword"
+                                    placeholder="At least 8 characters"
+                                    minlength="8"
+                                    autocomplete="new-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="registerPassword"
+                                    aria-label="Show password"
+                                >
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                            id="registerBtn"
+                        >
+                            Create account
+                        </button>
+
+                    </form>
+
+
+                    <p class="switch-auth">
+                        Already have an account?
+
+                        <button
+                            type="button"
+                            id="showLoginBtn"
+                        >
+                            Sign in
+                        </button>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN APPLICATION
+    ====================================================== -->
+
+    <div id="app" class="app hidden">
+
+
+        <!-- =========================
+             LEFT SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <img
+                    src="assets/chirp-logo.png"
+                    alt="Chirp"
+                >
+
+                <span>Chirp</span>
+
+            </div>
+
+
+            <nav class="main-nav">
+
+                <button
+                    class="nav-item active"
+                    data-page="homePage"
+                >
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="discoverPage"
+                >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Discover</span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="friendsPage"
+                >
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Friends</span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="messagesPage"
+                >
+                    <i class="fa-regular fa-message"></i>
+
+                    <span>Messages</span>
+
+                    <span
+                        id="messageBadge"
+                        class="nav-badge hidden"
+                    >
+                        0
+                    </span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="notificationsPage"
+                >
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span>Notifications</span>
+
+                    <span
+                        id="notificationBadge"
+                        class="nav-badge hidden"
+                    >
+                        0
+                    </span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="profilePage"
+                >
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profile</span>
+                </button>
+
+            </nav>
+
+
+            <button
+                class="new-post-btn"
+                id="newPostBtn"
+            >
+                <i class="fa-solid fa-plus"></i>
+                <span>New Chirp</span>
+            </button>
+
+
+            <div class="sidebar-user">
+
+                <div
+                    class="user-avatar"
+                    id="sidebarAvatar"
+                >
+                    U
+                </div>
+
+                <div class="sidebar-user-info">
+
+                    <strong id="sidebarName">
+                        User
+                    </strong>
+
+                    <span id="sidebarUsername">
+                        @username
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn"
+                    title="Sign out"
+                    aria-label="Sign out"
+                >
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================
+                 HOME PAGE
+            ================================== -->
+
+            <section
+                id="homePage"
+                class="page active-page"
+            >
+
+                <header class="page-header">
+
+                    <div>
+
+                        <h1>Home</h1>
+
+                        <p>
+                            See what your friends are sharing.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <!-- POST COMPOSER -->
+
+                <div class="post-composer">
+
+                    <div
+                        class="user-avatar"
+                        id="composerAvatar"
+                    >
+                        U
+                    </div>
+
+
+                    <div class="composer-content">
+
+                        <textarea
+                            id="postInput"
+                            maxlength="500"
+                            placeholder="What's happening?"
+                        ></textarea>
+
+
+                        <div class="composer-footer">
+
+                            <span
+                                id="postCharacterCount"
+                                class="character-count"
+                            >
+                                0 / 500
+                            </span>
+
+
+                            <button
+                                id="publishPostBtn"
+                                class="primary-small-btn"
+                            >
+                                Chirp
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- POSTS -->
+
+                <div id="postsContainer">
+
+                    <div class="empty-state">
+
+                        <i class="fa-regular fa-comments"></i>
+
+                        <h3>Your feed is waiting</h3>
+
+                        <p>
+                            Follow friends and start sharing.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 DISCOVER PAGE
+            ================================== -->
+
+            <section
+                id="discoverPage"
+                class="page"
+            >
+
+                <header class="page-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            DISCOVER
+                        </span>
+
+                        <h1>Find your people</h1>
+
+                        <p>
+                            Search for friends and colleagues by
+                            their name or username.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <div class="people-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="search"
+                        id="peopleSearchInput"
+                        placeholder="Search name or @username..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div
+                    id="peopleSearchResults"
+                    class="people-list"
+                >
+
+                    <div class="empty-state">
+
+                        <i class="fa-solid fa-user-group"></i>
+
+                        <h3>Search Chirp</h3>
+
+                        <p>
+                            Find someone using their name
+                            or username.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 FRIENDS PAGE
+            ================================== -->
+
+            <section
+                id="friendsPage"
+                class="page"
+            >
+
+                <header class="page-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            YOUR NETWORK
+                        </span>
+
+                        <h1>Friends</h1>
+
+                        <p>
+                            People you've connected with.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <div class="friends-tabs">
+
+                    <button
+                        class="friends-tab active"
+                        data-friends-tab="friendsList"
+                    >
+                        Friends
+                    </button>
+
+                    <button
+                        class="friends-tab"
+                        data-friends-tab="friendRequests"
+                    >
+                        Requests
+
+                        <span
+                            id="friendRequestCount"
+                            class="small-badge hidden"
+                        >
+                            0
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div id="friendsList" class="friends-panel">
+
+                    <div class="empty-state">
+
+                        <i class="fa-solid fa-user-group"></i>
+
+                        <h3>No friends yet</h3>
+
+                        <p>
+                            Discover people and send a friend request.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="friendRequests"
+                    class="friends-panel hidden"
+                >
+
+                    <div class="empty-state">
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <h3>No requests</h3>
+
+                        <p>
+                            New friend requests will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 MESSAGES PAGE
+            ================================== -->
+
+            <section
+                id="messagesPage"
+                class="page messages-page"
+            >
+
+
+                <!-- CONVERSATIONS -->
+
+                <div class="conversations-panel">
+
+                    <div class="messages-heading">
+
+                        <h2>Messages</h2>
+
+                        <button
+                            id="startChatBtn"
+                            title="New conversation"
+                            aria-label="New conversation"
+                        >
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="conversation-search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="conversationSearch"
+                            placeholder="Search conversations"
+                        >
+
+                    </div>
+
+
+                    <div
+                        id="conversationsList"
+                        class="conversations-list"
+                    >
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAT -->
+
+                <div class="chat-panel">
+
+
+                    <div
+                        id="noChatSelected"
+                        class="no-chat-selected"
+                    >
+
+                        <div class="chat-empty-icon">
+
+                            <i class="fa-regular fa-message"></i>
+
+                        </div>
+
+                        <h2>Your messages</h2>
+
+                        <p>
+                            Select a friend to start chatting.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="activeChat"
+                        class="active-chat hidden"
+                    >
+
+
+                        <header class="chat-header">
+
+                            <button
+                                id="mobileBackToChats"
+                                class="mobile-chat-back"
+                                aria-label="Back to conversations"
+                            >
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+
+
+                            <div
+                                id="chatUserAvatar"
+                                class="user-avatar"
+                            >
+                                U
+                            </div>
+
+
+                            <div class="chat-user-info">
+
+                                <strong id="chatUserName">
+                                    Friend
+                                </strong>
+
+                                <span id="chatUserUsername">
+                                    @friend
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                id="chatOptionsBtn"
+                                class="chat-options"
+                                aria-label="Chat options"
+                            >
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </button>
+
+                        </header>
+
+
+
+                        <div
+                            id="messagesContainer"
+                            class="messages-container"
+                        >
+                        </div>
+
+
+
+                        <div class="message-composer">
+
+                            <textarea
+                                id="messageInput"
+                                rows="1"
+                                maxlength="2000"
+                                placeholder="Write a message..."
+                            ></textarea>
+
+
+                            <button
+                                id="sendMessageBtn"
+                                aria-label="Send message"
+                            >
+
+                                <i class="fa-solid fa-paper-plane"></i>
+
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 NOTIFICATIONS PAGE
+            ================================== -->
+
+            <section
+                id="notificationsPage"
+                class="page"
+            >
+
+                <header class="page-header">
+
+                    <div>
+
+                        <h1>Notifications</h1>
+
+                        <p>
+                            Friend requests, likes and other activity.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <div id="notificationsContainer">
+
+                    <div class="empty-state">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <h3>Nothing new</h3>
+
+                        <p>
+                            Your notifications will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 PROFILE PAGE
+            ================================== -->
+
+            <section
+                id="profilePage"
+                class="page"
+            >
+
+                <div class="profile-cover"></div>
+
+
+                <div class="profile-details">
+
+                    <div
+                        id="profileAvatar"
+                        class="profile-avatar"
+                    >
+                        U
+                    </div>
+
+
+                    <button
+                        id="editProfileBtn"
+                        class="outline-btn"
+                    >
+                        Edit profile
+                    </button>
+
+
+                    <h1 id="profileName">
+                        Your Name
+                    </h1>
+
+                    <span id="profileUsername">
+                        @username
+                    </span>
+
+
+                    <p id="profileBio">
+                        Welcome to my Chirp profile.
+                    </p>
+
+
+                    <div class="profile-stats">
+
+                        <div>
+
+                            <strong id="profileFriendsCount">
+                                0
+                            </strong>
+
+                            <span>Friends</span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong id="profilePostsCount">
+                                0
+                            </strong>
+
+                            <span>Chirps</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="profilePosts"
+                    class="profile-posts"
+                >
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+
+        <!-- =========================
+             RIGHT SIDEBAR
+        ========================== -->
+
+        <aside class="right-sidebar">
+
+
+            <div class="right-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    id="globalSearch"
+                    type="search"
+                    placeholder="Search Chirp"
+                >
+
+            </div>
+
+
+            <div class="side-card">
+
+                <h3>People you may know</h3>
+
+                <div id="suggestedPeople">
+                </div>
+
+
+                <button
+                    class="text-btn"
+                    id="seeMorePeopleBtn"
+                >
+                    See more
+                </button>
+
+            </div>
+
+
+            <div class="side-card">
+
+                <h3>About Chirp</h3>
+
+                <p class="about-text">
+                    Connect with people you know, share updates
+                    and have private conversations.
+                </p>
+
+            </div>
+
+
+            <footer class="mini-footer">
+
+                <span>© 2026 Chirp</span>
+
+                <a href="#">Privacy</a>
+
+                <a href="#">Terms</a>
+
+            </footer>
+
+
+        </aside>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         EDIT PROFILE MODAL
+    ====================================================== -->
+
+    <div
+        id="editProfileModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-overlay"></div>
+
+
+        <div class="modal-card">
+
+            <div class="modal-header">
+
+                <h2>Edit profile</h2>
+
+                <button
+                    id="closeEditProfile"
+                    aria-label="Close"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <form id="editProfileForm">
+
+
+                <div class="form-group">
+
+                    <label for="editName">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editName"
+                        maxlength="60"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editUsername">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editUsername"
+                        maxlength="20"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editBio">
+                        Bio
+                    </label>
+
+                    <textarea
+                        id="editBio"
+                        maxlength="160"
+                        placeholder="Tell people about yourself..."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    Save changes
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="toast hidden"
+    >
+
+        <i
+            id="toastIcon"
+            class="fa-solid fa-circle-check"
+        ></i>
+
+        <span id="toastMessage">
+            Success
+        </span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SUPABASE
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
